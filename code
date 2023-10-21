@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>To-Do List</title>
+</head>
+<body>
+    <div class="container">
+        <h1>To-Do List</h1>
+        <input type="text" id="task" placeholder="Enter a new task...">
+        <button id="add">Add</button>
+        <ul id="taskList"></ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const taskInput = document.getElementById("task");
+    const addBtn = document.getElementById("add");
+    const taskList = document.getElementById("taskList");
+
+    addBtn.addEventListener("click", function () {
+        const taskText = taskInput.value.trim();
+
+        if (taskText !== "") {
+            const li = document.createElement("li");
+            li.innerHTML = `
+                <span>${taskText}</span>
+                <button class="delete">Delete</button>
+            `;
+
+            taskList.appendChild(li);
+            taskInput.value = "";
+
+            // Add event listener to the delete button
+            const deleteBtn = li.querySelector(".delete");
+            deleteBtn.addEventListener("click", function () {
+                li.remove();
+            });
+        }
+    });
+
+    // Allow adding a task when the Enter key is pressed
+    taskInput.addEventListener("keyup", function (event) {
+        if (event.key === "Enter") {
+            addBtn.click();
+        }
+    });
+});

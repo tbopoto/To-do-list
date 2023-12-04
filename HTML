@@ -4,14 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>To-Do List</title>
+    <title>Advanced To-Do List</title>
+    <style>
+        /* Additional inline styles for demonstration purposes */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>To-Do List</h1>
-        <input type="text" id="task" placeholder="enter a new task...">
-        <button id="add">Add</button>
-        <ul id="taskList"></ul>
+        <header>
+            <h1>Advanced To-Do List</h1>
+            <p>Organize your tasks with ease!</p>
+        </header>
+        <section id="task-section">
+            <label for="task">New Task:</label>
+            <input type="text" id="task" placeholder="Enter a new task...">
+            <button id="add">Add</button>
+        </section>
+        <section id="list-section">
+            <h2>Task List</h2>
+            <ul id="taskList">
+                <!-- Example tasks for demonstration -->
+                <li>Complete coding challenge</li>
+                <li>Read a chapter of a book</li>
+                <li>Exercise for 30 minutes</li>
+            </ul>
+        </section>
+        <footer>
+            <p>&copy; 2023 Advanced To-Do List. All rights reserved.</p>
+        </footer>
     </div>
     <script src="script.js"></script>
 </body>

@@ -14,4 +14,3 @@ My To-Do List project! This simple web-based to-do list application allows you t
 - Sort tasks by priority and order of creation.
 - Clean and user-friendly interface.
 - Simple and responsive design.
-THE END
